@@ -1,1 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gastzugang</title>
 
+<style>
+body{
+font-family:system-ui;
+background:#f3f3f3;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+margin:0;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:12px;
+text-align:center;
+max-width:400px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+button{
+background:#1976d2;
+color:white;
+border:none;
+padding:14px 22px;
+font-size:16px;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1565c0;
+}
+
+.small{
+margin-top:20px;
+font-size:12px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Willkommen</h2>
+
+<p>Bitte tippe auf Freigeben und melde dich anschließend an.</p>
+
+<button onclick="freigeben()">Freigeben</button>
+
+<p class="small">
+Durch das Tippen wird ein zeitlich begrenzter Gastzugang aktiviert.
+</p>
+
+</div>
+
+<script>
+
+async function freigeben(){
+
+await fetch("WEBHOOK_URL", {method:"POST",mode:"no-cors"});
+
+window.location.href="DASHBOARD_URL";
+
+}
+
+</script>
+
+</body>
+</html>
